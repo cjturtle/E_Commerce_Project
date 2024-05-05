@@ -1,0 +1,96 @@
+<header
+  class="bg-dark text-light d-flex align-items-center border-bottom border-light"
+>
+  <div class="container d-flex justify-content-between">
+    <p class="fs-small fw-lighter mt-2">
+      Free shipping Over $100 & Free returns
+    </p>
+    <div class="">
+      <p class="fs-small fw-lighter mt-2">
+        Hotline:(888) 4344-6000-(888) 1338 8193 | English | USD$
+      </p>
+    </div>
+  </div>
+</header>
+<nav
+  class="navbar navbar-expand bg-dark border-bottom fw-light fs-6"
+  data-bs-theme="dark"
+  style="height: 60px"
+>
+  <div class="container p-0">
+    <a class="navbar-brand me-5" href="/">Kalzada</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="d-flex justify-content-between collapse navbar-collapse"
+      id="navbarNavDropdown"
+    >
+      <div class="d-flex ms-5">
+        <input
+          style="width: 350px"
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Search.."
+        />
+        <button class="btn btn-warning bi bi-search"></button>
+      </div>
+      <ul class="navbar-nav">
+        <% if(user) { %>
+      
+        <div class="nav-item ">
+          <a class="nav-link active bi bi-bag-plus" aria-current="page" href="/add-products"
+            ></i
+          ></a>
+        </div>
+        <% } %>
+      </ul>
+    </div>
+
+    <ul style="color: white">
+      <% if(user) { %>
+
+      <div style="font-size: 1.1rem" class="d-flex flex-row user-btn mt-3 mx-4">
+        <!-- <li>Welcome, <%= user.email %></li> -->
+        <div class="m-0 nav-item pt-1">
+          <a href="/cart" class="bi bi-cart3 mx-2 text-light"></a>
+        </div>
+        <div class="m-0 nav-item">
+          <a
+            class="nav-link dropdown-toggle text-light bi bi-person-circle"
+            style="color: white"
+            data-bs-toggle="dropdown"
+          >
+          </a>
+          <ul class="dropdown-menu dropdown-menu-sm-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="/orders">My Purchase</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <% }else { %>
+      <div class="d-flex flex-row gap-3 mt-3 fw-light fs-6">
+        <li type="button" class="btn btn-light">
+          <a href="/login" class="text-dark text-decoration-none">Log in</a>
+        </li>
+
+        <li type="button" class="btn btn-light">
+          <a href="/signup" class="text-dark text-decoration-none">Sign up</a>
+        </li>
+      </div>
+      <% } %>
+    </ul>
+  </div>
+</nav>

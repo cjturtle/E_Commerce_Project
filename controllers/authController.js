@@ -13,12 +13,12 @@ const handleErrors = (err) => {
 
   //Incorect Password
   if (err.message === "Incorrect Password") {
-    errors.password = "The password is incorrect";
+    errors.password = "Incorrect password";
   }
 
   if (err.code === 11000) {
     //duplicate error code
-    errors.email = "that Email is already registered";
+    errors.email = "Email is already registered";
     return errors;
   }
 

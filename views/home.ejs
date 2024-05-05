@@ -1,14 +1,154 @@
 <%- include('partials/header'); -%>
+<div class="whole" style="height: auto">
+  <div class="d-flex justify-content-center gap-3 my-5">
+    <div class="me-5 rounded-3" style="width: 550px">
+      <img
+        style="height: 350px"
+        class="w-100 h-100 object-fit-cover rounded-3"
+        src="uploads/air-jordan-1-retro-high-og-black-white-shoes-Pz6fZ9.png"
+        alt=""
+      />
+    </div>
+    <div class="d-flex flex-column gap-3" style="width: 350px">
+      <img
+        class="object-fit-cover rounded-3"
+        style="height: 300px"
+        src="uploads/air-jordan-1-mid-shoes-BpARGV.png"
+        alt=""
+      />
+      <img
+        class="object-fit-cover rounded-3"
+        style="height: 300px"
+        src="uploads/jordan-air-ship-pe-sp-shoes-CXv4gw.png"
+        alt=""
+      />
+    </div>
+    <div class="d-flex flex-column gap-3" style="width: 350px">
+      <img
+        class="object-fit-cover rounded-3"
+        style="height: 300px"
+        src="uploads/air-jordan-1-mid-se-shoes-qG5ltp.png"
+        alt=""
+      />
+      <img
+        class="object-fit-cover rounded-3"
+        style="height: 300px"
+        src="uploads/air-jordan-1-retro-high-og-yellow-ochre-shoes-Pz6fZ9.jpg"
+        alt=""
+      />
+    </div>
+  </div>
 
-<header>
-  <div class="smoothie">
-    <img src="/smoothie.png" alt="" />
+  <!-- <div
+    style="background-color: #f3f4f6"
+    class="d-flex justify-content-center p-5"
+  >
+    <div style="background-color: #f8fafc" class="d-flex rounded-3">
+      <div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+        <div
+          class="box_square d-flex justify-content-center align-items-center"
+        >
+          <a class="pointer-cursor" href="#">Title</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div style="background-color: #f3f4f6" class="pt-1">
+    <h4 class="ms-5 mt-3">Featured Collection</h4>
+    <div class="gap-3 justify-content-center lh-1 gridcontainer">
+      <% images.forEach(post => { %>
+
+      <div class="rounded-1 bg-blue" style="width: 250px">
+        <a
+          href="/details/<%= post._id %>"
+          class="text-decoration-none h-50 d-flex flex-column shadow text-dark"
+        >
+          <img
+            src="uploads/<%= post.filename %>"
+            alt=""
+            style="height: 300px"
+            class="w-100 rounded-1 productimage object-fit-cover"
+          />
+
+          <div class="fs-small p-2 d-flex flex-column">
+            <p class="fw-semibold productname"><%= post.productname %></p>
+            <p class="fw-medium price">₱ <%= post.price %></p>
+            <div class="">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+          <% if(user){ %>
+          <div
+            class="d-flex gap-1 justify-content-end align-items-end py-0 mx-2"
+          >
+            <%- include('partials/buyButton', {post: post}) %> <%-
+            include('partials/cartButton', {post: post}) %>
+          </div>
+          <% } %>
+        </a>
+      </div>
+
+      <% }) %>
+    </div>
   </div>
-  <div class="headings">
-    <h2>Authentication Tempalte</h2>
-    <h3>By Turtle</h3>
-    <a href="/smoothies" class="btn">View Recipes</a>
-  </div>
-</header>
+</div>
 
 <%- include('partials/footer'); -%>

@@ -1,0 +1,99 @@
+<%- include('partials/header'); -%>
+
+<div
+  class="vw-100 vh-auto px-5 py-3 d-flex flex-column align-items-center gap-4"
+>
+  <h1>Cart</h1>
+  <div
+    style="height: 60px"
+    class="shadow w-100 rounded-2 d-flex justify-content-around align-items-center"
+  >
+    <div
+      class="w-50 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class=""><h6>Product</h6></div>
+    </div>
+    <div class=""><h6>Unit Price</h6></div>
+    <div class=""><h6>Quantity</h6></div>
+    <div class=""><h6>Total Price</h6></div>
+    <div class=""><h6>Actions</h6></div>
+  </div>
+
+  <% if (carts.length > 0) { %> <% carts.forEach(cart => { %>
+  <div
+    style="height: 200px"
+    class="w-100 ps-5 rounded-2 shadow d-flex justify-content-around align-items-center"
+  >
+    <div
+      class="ms-2 w-50 d-flex justify-content-center align-items-start gap-3"
+    >
+      <div class="h-50 d-flex flex-column mx-3" style="height: 90px">
+        <img
+          src="/uploads/<%= cart.filename %>"
+          alt=""
+          style="height: 100px"
+          class="w-100 object-fit-cover shadow-lg"
+        />
+      </div>
+      <div class="w-50 overflow-hidden" style="height: 100px">
+        <p class="mx-4 fw-light"><%= cart.description %></p>
+      </div>
+    </div>
+    <div class="fw-light"><p>Php <%= cart.price %></p></div>
+    <div class="fw-light">
+      <form>
+        <div class="d-flex">
+          <div
+            class="indec value-button text-center bg-warning-subtle text-warning-emphasis"
+            id="decrease"
+            onclick="decreaseValue()"
+            value="Decrease Value"
+            style="width: 30px"
+          >
+            -
+          </div>
+          <input
+            type="number"
+            id="number"
+            value="0"
+            style="width: 40px"
+            class="bg-warning-subtle text-warning-emphasis border-0 text-center"
+          />
+          <div
+            class="indec value-button text-center bg-warning-subtle text-warning-emphasis"
+            id="increase"
+            onclick="increaseValue()"
+            value="Increase Value"
+            style="width: 30px"
+          >
+            +
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="fw-light"><p>Php <%= cart.price %></p></div>
+    <div class="fw-light">
+      <%- include('partials/deleteButton', {cart: cart}) %>
+    </div>
+  </div>
+
+  <% }) %> <% } %>
+</div>
+
+<%- include('partials/footer'); -%>
+<script>
+  function increaseValue() {
+    var value = parseInt(document.getElementById("number").value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById("number").value = value;
+  }
+
+  function decreaseValue() {
+    var value = parseInt(document.getElementById("number").value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? (value = 1) : "";
+    value--;
+    document.getElementById("number").value = value;
+  }
+</script>

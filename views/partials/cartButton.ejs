@@ -1,0 +1,8 @@
+<form class="mb-2" action="/addtocart" method="post">
+  <input type="hidden" value="<%= post.productname %>" name="productname" />
+  <input type="hidden" value="<%= post.filename %>" name="filename" />
+  <input type="hidden" value="<%= post.price %>" name="price" />
+  <input type="hidden" value="<%= post.description %>" name="description" />
+  <input type="hidden" value="<%= post.image %>" name="image" />
+  <button class="btn btn-warning btn-sm">Add to cart</button>
+</form>

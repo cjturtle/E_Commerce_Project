@@ -1,16 +1,33 @@
 <%- include('partials/header'); -%>
-
-<form action="/signup">
-  <h2>Login</h2>
-  <label for="email">Email:</label>
-  <input type="text" name="email" />
-  <div class="email error"></div>
-  <label for="password">Password:</label>
-  <input type="password" name="password" />
-  <div class="password error"></div>
-  <button>login</button>
-</form>
-
+<div class="whole d-flex justify-content-center pt-5">
+  <div
+    style="height: 400px"
+    class="w-50 py-5 px-5 mt-5 border border-dark rounded-4"
+  >
+    <form action="/signup" class="">
+      <h2>Login</h2>
+      <div class="mb-3 p-2">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          type="text"
+          name="email"
+          class="form-control border border-dark"
+        />
+        <div class="email error text-danger"></div>
+      </div>
+      <div class="mb-3 p-2">
+        <label for="password" class="form-label">Password:</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control border border-dark"
+        />
+        <div class="password error text-danger"></div>
+      </div>
+      <button class="btn btn-dark w-25">login</button>
+    </form>
+  </div>
+</div>
 <%- include('partials/footer'); -%>
 
 <script>

@@ -6,13 +6,24 @@ const app = express();
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
-const { requireAuth, checkUser } = require("./middleware/authMiddleware");
+const { checkUser } = require("./middleware/authMiddleware");
+
+//MULTER
+const bodyParser = require("body-parser");
 
 // middleware
 app.use(express.static("public"));
+app.use("/images", express.static("public/images"));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  res.locals.path = req.path;
+  next();
+});
 
 // view engine
 app.set("view engine", "ejs");
@@ -38,7 +49,8 @@ mongoose
 
 // routes
 app.get("*", checkUser);
-app.get("/", (req, res) => res.render("home"));
-app.get("/smoothies", requireAuth, (req, res) => res.render("smoothies"));
+
+app.get("/add-products", (req, res) => res.render("addproducts"));
+app.get("/orders", (req, res) => res.render("orders"));
 
 app.use(authRoutes);
